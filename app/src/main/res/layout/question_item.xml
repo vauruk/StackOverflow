@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imgView"
+        android:src="@drawable/avatar"
+        android:minWidth="5dp"
+        android:minHeight="5dp"
+        android:maxWidth="5dp"
+        android:maxHeight="5dp"
+        android:scaleType="fitCenter"
+        android:drawingCacheQuality="high"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Small Text"
+        android:id="@+id/txtViewTopico"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imgView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtNameOwner"
+        android:textColor="@color/colorBackground"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/imgView"
+        android:layout_toEndOf="@+id/imgView" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/imgView"
+        android:visibility="gone"
+        android:id="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/txtScore"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/txtViewTopico"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right|top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/txtVotesPlus"
+            android:layout_below="@+id/txtViewTopico"
+            android:layout_above="@+id/txtTagAssociate"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right|center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/txtVotesNegative"
+            android:layout_below="@+id/txtNameOwner"
+            android:layout_alignBottom="@+id/txtTagAssociate"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right|bottom" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/txtTagAssociate"
+            android:layout_below="@+id/txtNameOwner"
+            android:layout_toEndOf="@+id/imgView"
+            android:layout_gravity="center_horizontal|top" />
+
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -63,7 +63,7 @@ public class ListStackActivity extends ActivityApp {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.new_item:
+            case R.id.new_question:
                 newItemList();
                 return true;
 

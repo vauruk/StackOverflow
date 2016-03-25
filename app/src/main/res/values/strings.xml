@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Lista Stack Overflow </string>
-    <string name="new_item">Novo Item</string>
-    <string name="save_new_tag">Gravar Tag</string>
+    <string name="app_name">Stack Overflow View</string>
+    <string name="app_description">Stack Overflow For Developers Java</string>
+    <string name="new_question">Novo Interesse</string>
+    <string name="save_new_question">Gravar Assunto</string>
     <string name="dialog_save_title">Adicionar a Lista</string>
 </resources>

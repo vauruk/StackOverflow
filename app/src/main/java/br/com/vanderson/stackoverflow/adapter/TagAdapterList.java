@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.com.vanderson.stackoverflow.AnswerActivity;
 import br.com.vanderson.stackoverflow.ListStackActivity;
+import br.com.vanderson.stackoverflow.QuestionActivity;
 import br.com.vanderson.stackoverflow.R;
 import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
 
@@ -57,7 +58,7 @@ public class TagAdapterList extends ArrayAdapter<TagStackOverflow> {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getContext(), AnswerActivity.class);
+                Intent i = new Intent(getContext(), QuestionActivity.class);
 
                 i.putExtra(ListStackActivity.TAG_STACK, p.getTag());
                 i.putExtra(ListStackActivity.NAME_STACK, p.getName());
@@ -66,13 +67,13 @@ public class TagAdapterList extends ArrayAdapter<TagStackOverflow> {
             }
         });
 
-        rowView.setOnTouchListener(new View.OnTouchListener() {
+      /* rowView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int y = (int) event.getRawY();
 
               //  RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
-                switch (event.getAction() & MotionEvent.ACTION_MASK)
+                switch (event.getAction())
                 {
                     case MotionEvent.ACTION_DOWN:
                         Toast.makeText( getContext(), "MotionEvent.ACTION_DOWN", Toast.LENGTH_LONG).show();
@@ -98,7 +99,7 @@ public class TagAdapterList extends ArrayAdapter<TagStackOverflow> {
 
                 return true;
             }
-        });
+        });*/
 
         return rowView;
     }
