@@ -1,94 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <ImageView
-        android:layout_width="80dp"
+    <TextView
+        android:id="@+id/txtVotesPlus"
+        android:layout_width="30dp"
         android:layout_height="80dp"
-        android:id="@+id/imgView"
-        android:src="@drawable/avatar"
-        android:minWidth="5dp"
-        android:minHeight="5dp"
-        android:maxWidth="5dp"
-        android:maxHeight="5dp"
-        android:scaleType="fitCenter"
-        android:drawingCacheQuality="high"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="10dp"
+        android:paddingTop="25dp"
+        android:text="20"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Small Text"
         android:id="@+id/txtViewTopico"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/imgView" />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txtNameOwner"
-        android:textColor="@color/colorBackground"
+        android:layout_alignBottom="@+id/txtVotesPlus"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/imgView"
-        android:layout_toEndOf="@+id/imgView" />
+        android:layout_alignTop="@+id/txtVotesPlus"
+        android:layout_toEndOf="@+id/txtVotesPlus"
+        android:text="txtViewTopico"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorPrimaryDark" />
 
-    <FrameLayout
+    <TextView
+        android:id="@+id/txtTagAssociate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtVotesPlus"
+        android:layout_toEndOf="@+id/txtVotesPlus"
+        android:text="txtTagAssociate"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/txtDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtViewTopico"
+        android:layout_below="@+id/txtViewTopico"
+        android:layout_marginTop="5dp"
+        android:text="@string/txt_show_detail"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/txtDateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtDetail"
+        android:layout_marginLeft="135dp"
+        android:text="Date edit"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtVotesPlus"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:text="txtViews"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+    <RelativeLayout
+        android:id="@+id/frDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/imgView"
-        android:visibility="gone"
-        android:id="@+id/frameLayout">
+        android:layout_height="100dp"
+        android:layout_below="@+id/txtDetail"
+        android:layout_marginTop="10dp"
+        android:background="#e6e6e6"
+        android:padding="5dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:drawingCacheQuality="high"
+
+            android:maxHeight="5dp"
+            android:maxWidth="5dp"
+            android:minHeight="5dp"
+            android:minWidth="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/avatar" />
 
         <TextView
+            android:id="@+id/txtNameOwner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/txtScore"
             android:layout_alignParentTop="true"
-            android:layout_alignBottom="@+id/txtViewTopico"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="right|top" />
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imgPerfil"
+            android:text="Name Owner"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorBackground" />
 
         <TextView
+            android:id="@+id/txtScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/txtVotesPlus"
-            android:layout_below="@+id/txtViewTopico"
-            android:layout_above="@+id/txtTagAssociate"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="right|center_vertical" />
+            android:layout_alignBottom="@+id/imgPerfil"
+            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@+id/textView3"
+            android:layout_marginStart="15dp"
+            android:text="Score"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/txtReputation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/txtVotesNegative"
-            android:layout_below="@+id/txtNameOwner"
-            android:layout_alignBottom="@+id/txtTagAssociate"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="right|bottom" />
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/textView2"
+            android:text="Reputation"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/txtTagAssociate"
-            android:layout_below="@+id/txtNameOwner"
-            android:layout_toEndOf="@+id/imgView"
-            android:layout_gravity="center_horizontal|top" />
+            android:layout_alignStart="@+id/txtNameOwner"
+            android:layout_centerVertical="true"
+            android:text="@string/reputation"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_alignTop="@+id/txtScore"
+            android:text="@string/txt_score"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

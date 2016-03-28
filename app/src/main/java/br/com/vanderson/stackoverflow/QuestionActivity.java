@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.vanderson.stackoverflow.adapter.QuestionAdapterList;
@@ -32,6 +33,7 @@ public class QuestionActivity extends ActivityApp {
 
     private RequestQueue queue;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +43,22 @@ public class QuestionActivity extends ActivityApp {
 
     private void onLoadView() {
         String nameTag = getIntent().getStringExtra(ListStackActivity.NAME_STACK);
-        setTextToolBar("Perguntas " + nameTag);
+        criarToolBarName(nameTag);
 
         listViewQuestions = (ListView)findViewById(R.id.listViewQuestions);
 
         queue = Volley.newRequestQueue(this);
 
-
-        doGet(new JSONObject());
-
-
+        doGet(nameTag);
     }
 
-    public void doGet(JSONObject jsonObject) {
+    private void criarToolBarName(String nameTag) {
+        setTextToolBar("Perguntas " + nameTag);
+    }
 
-        final String url = "https://api.stackexchange.com/2.2/questions?site=stackoverflow&key="+stack_overflow_key+"&order=desc&sort=activity&page=1";
+    public void doGet( final String nameTag) {
+
+        final String url = makeUrlConexao(nameTag);
 
         // Request a string response from the provided URL.
         JsonObjectRequest stringRequest = new JsonObjectRequest(
@@ -72,16 +75,17 @@ public class QuestionActivity extends ActivityApp {
 
                             Type listType = new TypeToken<List<StackOverflowQuestion>>() {}.getType();
                             listQuestions = new Gson().fromJson(String.valueOf(response.get("items")), listType);
-                            listQuestions.size();
+
 
                             QuestionAdapterList adaptador = new QuestionAdapterList(QuestionActivity.this, R.layout.question_item, listQuestions);
 
                             listViewQuestions.setAdapter(adaptador);
 
+                            criarToolBarName(nameTag+" "+listQuestions.size());
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
 
                     }
                 },
@@ -93,23 +97,17 @@ public class QuestionActivity extends ActivityApp {
                 });
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+    }
 
-       /*JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.GET,
-                url,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // implementar load dados
-                        response.length();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.getCause();
-                    }
-                });
-        queue.add(request);*/
+    private String makeUrlConexao(String nameTag) {
+        Calendar start = Calendar.getInstance();
+        start.set(Calendar.YEAR, 2015);
+        start.getTimeInMillis();
+        Calendar end = Calendar.getInstance();
+        String url = "https://api.stackexchange.com/2.2/questions?site=stackoverflow&key="+stack_overflow_key;
+               url+= "&pagesize=20&max=1383264000&sort=activity&tagged="+nameTag;
+                url+= "&page=1";
+        return url;
+
     }
 }

@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Stack Overflow View</string>
-    <string name="app_description">Stack Overflow For Developers Java</string>
+    <string name="app_description">Stack Overflow View</string>
     <string name="new_question">Novo Interesse</string>
     <string name="save_new_question">Gravar Assunto</string>
     <string name="dialog_save_title">Adicionar a Lista</string>
+    <string name="txt_show_detail">Show Details</string>
+    <string name="txt_hide_detail">Hide Details</string>
+    <string name="reputation">Reputation</string>
+    <string name="txt_score">Score</string>
 </resources>
