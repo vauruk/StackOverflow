@@ -8,8 +8,8 @@ import br.com.vanderson.stackoverflow.app.annotation.Table;
  */
 @Table(name = "tbl_tags_stack_overflow")
 public class TagStackOverflow extends EntidadeApp {
-    @Id
-    private int id = 0;
+
+
     private String name;
     private String tag;
 
@@ -17,6 +17,7 @@ public class TagStackOverflow extends EntidadeApp {
     }
 
     public TagStackOverflow(int id, String name, String tag) {
+        super.setId( id );
         this.name = name;
         this.tag = tag;
 
@@ -38,12 +39,6 @@ public class TagStackOverflow extends EntidadeApp {
         this.tag = tag;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
 }

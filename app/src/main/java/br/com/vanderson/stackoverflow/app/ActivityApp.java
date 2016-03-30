@@ -8,9 +8,14 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -22,6 +27,9 @@ import br.com.vanderson.stackoverflow.db.dao.DAOFactorySQLite;
  * Created by vauruk on 14/11/15.
  */
 public class ActivityApp extends AppCompatActivity {
+    protected static String stack_overflow_key = "U2qOjw7i9b3CsrPcJjUAtA((";
+
+    private RequestQueue mRequestQueue;
 
     protected void hideToolBar() {
 
@@ -74,6 +82,19 @@ public class ActivityApp extends AppCompatActivity {
         }*/
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public RequestQueue getRequestQueue() {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        }
+
+        return mRequestQueue;
+    }
+
+
+    public <T> void addToRequestQueue(Request<T> req) {
+        getRequestQueue().add(req);
     }
 
 }

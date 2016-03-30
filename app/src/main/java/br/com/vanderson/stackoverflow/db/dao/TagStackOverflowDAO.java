@@ -14,16 +14,18 @@ import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
  */
 public class TagStackOverflowDAO extends DAOGenerico {
 
+
     public TagStackOverflowDAO(DataStore dataStore){
         super(dataStore);
     }
+
 
     @Override
     public List<TagStackOverflow> listar( EntidadeApp entidade, String whereClause, String[] whereArgs , String orderBy) {
         db = dataStore.getDbHelper().getReadableDatabase();
         Cursor cursor = createQuerySqLite(db, entidade,whereClause, whereArgs, "name");
         List<TagStackOverflow> lista = new ArrayList<TagStackOverflow>();
-        if(cursor.moveToFirst()){
+        if(cursor.moveToFirst() && cursor.getCount()>0){
             do{
                 lista.add(new TagStackOverflow(cursor.getInt(0), cursor.getString(1), cursor.getString(2)));
             }while (cursor.moveToNext());
@@ -43,8 +45,10 @@ public class TagStackOverflowDAO extends DAOGenerico {
     }
 
     @Override
-    public void excluir(int id) {
+    public void excluir(EntidadeApp entidade) {
+        db = dataStore.getDbHelper().getWritableDatabase();
 
+       int result = super.createDeleteSqlite(entidade);
     }
 
     @Override

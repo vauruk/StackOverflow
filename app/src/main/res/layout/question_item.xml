@@ -11,7 +11,7 @@
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
-        android:paddingTop="25dp"
+        android:paddingTop="5dp"
         android:text="20"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -27,24 +27,28 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorPrimaryDark" />
 
-    <TextView
-        android:id="@+id/txtTagAssociate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtVotesPlus"
-        android:layout_toEndOf="@+id/txtVotesPlus"
-        android:text="txtTagAssociate"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+        android:id="@+id/layoutTags"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/txtViewTopico"
-        android:layout_below="@+id/txtViewTopico"
+        android:layout_below="@+id/layoutTags"
         android:layout_marginTop="5dp"
         android:text="@string/txt_show_detail"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorLink" />
 
     <TextView
         android:id="@+id/txtDateEdit"
@@ -59,10 +63,7 @@
         android:id="@+id/txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/txtVotesPlus"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_alignTop="@+id/txtDateEdit"
         android:text="txtViews"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -107,8 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imgPerfil"
             android:layout_centerHorizontal="true"
-            android:layout_toEndOf="@+id/textView3"
             android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/textView3"
             android:text="Score"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -141,5 +142,6 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>
+
 
 </RelativeLayout>

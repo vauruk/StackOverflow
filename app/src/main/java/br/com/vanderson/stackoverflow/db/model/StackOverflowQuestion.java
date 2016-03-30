@@ -8,7 +8,7 @@ import java.util.List;
  * Created by vauruk on 24/03/16.
  */
 
-public class StackOverflowQuestion {
+public class StackOverflowQuestion extends EntidadeApp{
 
     @SerializedName("is_answered")
     private boolean is_answered;

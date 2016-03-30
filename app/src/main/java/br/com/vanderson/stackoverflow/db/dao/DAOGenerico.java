@@ -37,6 +37,8 @@ public abstract class DAOGenerico implements DAO {
     private String[] loadArrayColunn(EntidadeApp obj) {
         List<String> listColunn = new ArrayList<String>();
         Class<?> clazz1 = obj.getClass();
+        //TODO vanderson revisar assim que possivel
+        listColunn.add("id");
         for (Field field : clazz1.getDeclaredFields()) {
             field.setAccessible(true);
             listColunn.add(field.getName());
@@ -45,7 +47,7 @@ public abstract class DAOGenerico implements DAO {
         return listColunn.toArray(new String[listColunn.size()]);
     }
 
-    private String getTableName(EntidadeApp obj) {
+    protected String getTableName(EntidadeApp obj) {
         Class clazz1 = obj.getClass();
         String nameTable = "";
         if (clazz1.isAnnotationPresent(Table.class)) {
@@ -65,6 +67,7 @@ public abstract class DAOGenerico implements DAO {
         return db.insert(getTableName(entidade), null, createContentValues(entidade));
     }
 
+
     private ContentValues createContentValues(EntidadeApp entidade) {
         Class<?> clazz1 = entidade.getClass();
         ContentValues values = new ContentValues();
@@ -82,4 +85,11 @@ public abstract class DAOGenerico implements DAO {
 
         return values;
     }
+
+
+    public int createDeleteSqlite(EntidadeApp entidade) {
+
+        return db.delete(getTableName(entidade), "id=?", new String[]{String.valueOf(entidade.getId())});
+    }
+
 }

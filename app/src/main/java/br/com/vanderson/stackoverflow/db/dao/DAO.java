@@ -11,7 +11,7 @@ public interface DAO {
 
     public List<?> listar( EntidadeApp tag,  String whereClause, String[] whereArgs , String orderBy);
     public void gravar(EntidadeApp  obj);
-    public void excluir(int id);
+    public void excluir(EntidadeApp  obj);
     public void alterar(EntidadeApp obj);
     public EntidadeApp carregar(int id);
 }

@@ -2,6 +2,7 @@
     <string name="app_name">Stack Overflow View</string>
     <string name="app_description">Stack Overflow View</string>
     <string name="new_question">Novo Interesse</string>
+    <string name="edit_question">Editar</string>
     <string name="save_new_question">Gravar Assunto</string>
     <string name="dialog_save_title">Adicionar a Lista</string>
     <string name="txt_show_detail">Show Details</string>

@@ -32,24 +32,25 @@ public class ListStackActivity extends ActivityApp {
     private List<TagStackOverflow> listTagStackSelect = new ArrayList<TagStackOverflow>();
     private TagAdapterList adaptador = null;
 
-    private TagStackOverflowDAO dao ;
+    private TagStackOverflowDAO dao;
 
-    //Android, Java, An droid Studio, Marshmallow e Nexus
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_stack);
 
+        populateListView();
+    }
+
+    private void populateListView() {
         dao = (TagStackOverflowDAO) getDaoFactory().createTagStackOverflow(this);
-     //   listTagStackSelect = dao.listar(TagStackOverflow.class, "name = ?", new String[]{"Android"}, "name");
+
         listTagStackSelect = dao.listar(new TagStackOverflow(), null, null, "name");
 
         listTagsStackView = (ListView) findViewById(R.id.listTagsStackView);
-        adaptador = new TagAdapterList(this, R.layout.tag_stack_overflow_item, listTagStackSelect);
+        adaptador = new TagAdapterList(this, R.layout.tag_stack_overflow_item, listTagStackSelect, dao);
 
         listTagsStackView.setAdapter(adaptador);
-
-
     }
 
     @Override
@@ -70,6 +71,10 @@ public class ListStackActivity extends ActivityApp {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void editItensList() {
+
     }
 
     private void newItemList() {
@@ -93,6 +98,7 @@ public class ListStackActivity extends ActivityApp {
                 tag.setTag(tagTxt.getText().toString());
                 tag.setName(nameTxt.getText().toString());
                 dao.gravar(tag);
+                populateListView();
                 dialog.dismiss();
             }
         });
