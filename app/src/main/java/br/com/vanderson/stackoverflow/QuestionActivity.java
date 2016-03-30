@@ -114,12 +114,14 @@ public class QuestionActivity extends ActivityApp {
 
     private String makeUrlConexao(String nameTag) {
         Calendar start = Calendar.getInstance();
-        start.set(Calendar.YEAR, 2015);
-        start.getTimeInMillis();
+        start.add(Calendar.MONTH, -15);
         Calendar end = Calendar.getInstance();
+        long st = start.getTimeInMillis()/1000;
+        long ed = end.getTimeInMillis()/1000;
         String url = "https://api.stackexchange.com/2.2/questions?site=stackoverflow&key=" + stack_overflow_key;
-        url += "&pagesize=20&max=1383264000&sort=activity&tagged=" + nameTag;
-        url += "&page=1";
+        url += "&pagesize=20&sort=activity&tagged=" + nameTag;
+        url += "&page=1&fromdate="+st+"&todate="+ed+"&order=desc";
+
         return url;
 
     }

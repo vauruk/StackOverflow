@@ -116,7 +116,7 @@ public class QuestionAdapterList extends ArrayAdapter<StackOverflowQuestion> {
             TextView txtDateEdit = (TextView) rowView.findViewById(R.id.txtDateEdit);
             if (p.getCreation_date() != null && p.getCreation_date() > 0) {
                 Calendar cal = Calendar.getInstance();
-                cal.setTimeInMillis(p.getCreation_date());
+                cal.setTimeInMillis(p.getCreation_date()*1000);
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 txtDateEdit.setText(sdf.format(cal.getTime()));
             } else {
