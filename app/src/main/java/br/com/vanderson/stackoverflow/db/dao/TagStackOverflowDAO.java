@@ -11,6 +11,8 @@ import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
 
 /**
  * Created by vauruk on 19/03/16.
+ * A implementacao especifica para o UC relacionado
+ *
  */
 public class TagStackOverflowDAO extends DAOGenerico {
 

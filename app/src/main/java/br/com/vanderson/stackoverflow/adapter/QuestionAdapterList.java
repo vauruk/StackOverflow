@@ -139,24 +139,6 @@ public class QuestionAdapterList extends ArrayAdapter<StackOverflowQuestion> {
         return rowView;
     }
 
-    /**
-     * gestos na row
-     *
-     * @param rowView
-     * @return
-     */
-   /* private View.OnTouchListener createOnClick(final View rowView) {
-        OnSwipeTouchListener listener = new OnSwipeTouchListener(getContext()) {
-            @Override
-            public void onSwipeLeft() {
-                Toast.makeText(getContext(), "Arrasto o dedo", Toast.LENGTH_LONG).show();
-
-
-            }
-        };
-
-        return listener;
-    }*/
     private void showFrame(final View rowView, final StackOverflowQuestion p) {
         TextView txtDetail = (TextView) rowView.findViewById(R.id.txtDetail);
         txtDetail.setOnClickListener(new View.OnClickListener() {

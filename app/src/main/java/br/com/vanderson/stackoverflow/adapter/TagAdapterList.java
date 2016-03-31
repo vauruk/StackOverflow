@@ -24,6 +24,7 @@ import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
 
 /**
  * Created by vauruk on 18/03/16.
+ * Lista as tags de bucas na StackOverflow
  */
 public class TagAdapterList extends ArrayAdapter<TagStackOverflow> {
 
@@ -95,40 +96,6 @@ public class TagAdapterList extends ArrayAdapter<TagStackOverflow> {
                 return true;
             }
         });
-
-      /* rowView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int y = (int) event.getRawY();
-
-              //  RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) v.getLayoutParams();
-                switch (event.getAction())
-                {
-                    case MotionEvent.ACTION_DOWN:
-                        Toast.makeText( getContext(), "MotionEvent.ACTION_DOWN", Toast.LENGTH_LONG).show();
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-                        Toast.makeText( getContext(), "MotionEvent.ACTION_UP", Toast.LENGTH_LONG).show();
-                        break;
-
-                    case MotionEvent.ACTION_POINTER_DOWN:
-                    case MotionEvent.ACTION_POINTER_UP:
-                        break;
-
-                    case MotionEvent.ACTION_MOVE:
-                        Toast.makeText( getContext(), "MotionEvent.ACTION_MOVE", Toast.LENGTH_LONG).show();
-
-                        // Avoid out of screen
-                      //  if (params.topMargin < 0) return true;
-
-                        // Apply changes
-                        break;
-                }
-
-                return true;
-            }
-        });*/
 
         return rowView;
     }

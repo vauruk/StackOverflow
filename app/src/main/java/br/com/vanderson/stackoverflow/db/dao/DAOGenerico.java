@@ -86,7 +86,11 @@ public abstract class DAOGenerico implements DAO {
         return values;
     }
 
-
+    /**
+     * IMplementa o delete no formato sqlite android
+     * @param entidade
+     * @return inteiro se houver um delete executado com sucesso.
+     */
     public int createDeleteSqlite(EntidadeApp entidade) {
 
         return db.delete(getTableName(entidade), "id=?", new String[]{String.valueOf(entidade.getId())});

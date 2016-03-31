@@ -6,6 +6,7 @@ import br.com.vanderson.stackoverflow.db.model.EntidadeApp;
 
 /**
  * Created by vauruk on 19/03/16.
+ * Padronizacao de metodos a serem implementado
  */
 public interface DAO {
 

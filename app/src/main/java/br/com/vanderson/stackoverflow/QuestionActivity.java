@@ -68,9 +68,13 @@ public class QuestionActivity extends ActivityApp {
         loading.show();
     }
 
+    /**
+     * cria e popula a lista de de questões.
+     * @param listViewQuestions
+     * @param nameTag
+     */
     private void loadListQuestion(final ListView listViewQuestions, final String nameTag) {
         final String url = makeUrlConexao(nameTag);
-        // Request a string response from the provided URL.
         final QuestionAdapterList adapter  = new QuestionAdapterList(QuestionActivity.this, R.layout.question_item, listQuestions, nameTag);
         listViewQuestions.setAdapter(adapter);
         listQuestions.clear();
@@ -112,6 +116,11 @@ public class QuestionActivity extends ActivityApp {
 
     }
 
+    /**
+     * cria a Url de conexao
+     * @param nameTag
+     * @return
+     */
     private String makeUrlConexao(String nameTag) {
         Calendar start = Calendar.getInstance();
         start.add(Calendar.MONTH, -15);

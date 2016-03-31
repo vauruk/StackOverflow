@@ -29,4 +29,16 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/appby"
+        android:id="@+id/textView4"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:layout_below="@+id/imgSplash"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
 </RelativeLayout>
