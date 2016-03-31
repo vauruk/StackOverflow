@@ -1,13 +1,12 @@
 package br.com.vanderson.stackoverflow.db.model;
 
-import br.com.vanderson.stackoverflow.app.annotation.Id;
 import br.com.vanderson.stackoverflow.app.annotation.Table;
 
 /**
  * Created by vauruk on 19/03/16.
  */
 @Table(name = "tbl_tags_stack_overflow")
-public class TagStackOverflow extends EntidadeApp {
+public class TagStackOverflow extends EntityApp {
 
 
     private String name;

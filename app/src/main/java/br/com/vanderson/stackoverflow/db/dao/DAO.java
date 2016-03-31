@@ -2,7 +2,7 @@ package br.com.vanderson.stackoverflow.db.dao;
 
 import java.util.List;
 
-import br.com.vanderson.stackoverflow.db.model.EntidadeApp;
+import br.com.vanderson.stackoverflow.db.model.EntityApp;
 
 /**
  * Created by vauruk on 19/03/16.
@@ -10,9 +10,9 @@ import br.com.vanderson.stackoverflow.db.model.EntidadeApp;
  */
 public interface DAO {
 
-    public List<?> listar( EntidadeApp tag,  String whereClause, String[] whereArgs , String orderBy);
-    public void gravar(EntidadeApp  obj);
-    public void excluir(EntidadeApp  obj);
-    public void alterar(EntidadeApp obj);
-    public EntidadeApp carregar(int id);
+    public List<?> listar( EntityApp tag,  String whereClause, String[] whereArgs , String orderBy);
+    public void gravar(EntityApp obj);
+    public void excluir(EntityApp obj);
+    public void alterar(EntityApp obj);
+    public EntityApp carregar(int id);
 }

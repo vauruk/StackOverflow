@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.vanderson.stackoverflow.db.DataStore;
-import br.com.vanderson.stackoverflow.db.model.EntidadeApp;
+import br.com.vanderson.stackoverflow.db.model.EntityApp;
 import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
 
 /**
@@ -14,7 +14,7 @@ import br.com.vanderson.stackoverflow.db.model.TagStackOverflow;
  * A implementacao especifica para o UC relacionado
  *
  */
-public class TagStackOverflowDAO extends DAOGenerico {
+public class TagStackOverflowDAO extends DAOGeneric {
 
 
     public TagStackOverflowDAO(DataStore dataStore){
@@ -23,7 +23,7 @@ public class TagStackOverflowDAO extends DAOGenerico {
 
 
     @Override
-    public List<TagStackOverflow> listar( EntidadeApp entidade, String whereClause, String[] whereArgs , String orderBy) {
+    public List<TagStackOverflow> listar( EntityApp entidade, String whereClause, String[] whereArgs , String orderBy) {
         db = dataStore.getDbHelper().getReadableDatabase();
         Cursor cursor = createQuerySqLite(db, entidade,whereClause, whereArgs, "name");
         List<TagStackOverflow> lista = new ArrayList<TagStackOverflow>();
@@ -38,7 +38,7 @@ public class TagStackOverflowDAO extends DAOGenerico {
     }
 
     @Override
-    public void gravar( EntidadeApp entidade) {
+    public void gravar( EntityApp entidade) {
         db = dataStore.getDbHelper().getWritableDatabase();
 
 
@@ -47,14 +47,14 @@ public class TagStackOverflowDAO extends DAOGenerico {
     }
 
     @Override
-    public void excluir(EntidadeApp entidade) {
+    public void excluir(EntityApp entidade) {
         db = dataStore.getDbHelper().getWritableDatabase();
 
        int result = super.createDeleteSqlite(entidade);
     }
 
     @Override
-    public void alterar(EntidadeApp obj) {
+    public void alterar(EntityApp obj) {
 
     }
 

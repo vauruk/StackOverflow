@@ -11,30 +11,30 @@ import java.util.List;
 import br.com.vanderson.stackoverflow.app.annotation.Id;
 import br.com.vanderson.stackoverflow.app.annotation.Table;
 import br.com.vanderson.stackoverflow.db.DataStore;
-import br.com.vanderson.stackoverflow.db.model.EntidadeApp;
+import br.com.vanderson.stackoverflow.db.model.EntityApp;
 
 /**
  * Created by vauruk on 19/03/16.
  */
-public abstract class DAOGenerico implements DAO {
+public abstract class DAOGeneric implements DAO {
     protected static DataStore dataStore;
     protected SQLiteDatabase db;
 
     private final String TABLE = "NAME_TABLE";
 
-    public DAOGenerico(DataStore dataStore) {
+    public DAOGeneric(DataStore dataStore) {
         this.dataStore = dataStore;
     }
 
     /*
         Criado para criar o metodo query do SQLite
      */
-    protected Cursor createQuerySqLite(SQLiteDatabase db, EntidadeApp obj, String whereClause, String[] whereArgs, String orderBy) {
+    protected Cursor createQuerySqLite(SQLiteDatabase db, EntityApp obj, String whereClause, String[] whereArgs, String orderBy) {
         return db.query(getTableName(obj), loadArrayColunn(obj), whereClause, whereArgs, null, null, orderBy);
 
     }
 
-    private String[] loadArrayColunn(EntidadeApp obj) {
+    private String[] loadArrayColunn(EntityApp obj) {
         List<String> listColunn = new ArrayList<String>();
         Class<?> clazz1 = obj.getClass();
         //TODO vanderson revisar assim que possivel
@@ -47,7 +47,7 @@ public abstract class DAOGenerico implements DAO {
         return listColunn.toArray(new String[listColunn.size()]);
     }
 
-    protected String getTableName(EntidadeApp obj) {
+    protected String getTableName(EntityApp obj) {
         Class clazz1 = obj.getClass();
         String nameTable = "";
         if (clazz1.isAnnotationPresent(Table.class)) {
@@ -58,17 +58,17 @@ public abstract class DAOGenerico implements DAO {
     }
 
     @Override
-    public EntidadeApp carregar(int id) {
+    public EntityApp carregar(int id) {
         return null;
     }
 
-    public long createInsertSqlite(EntidadeApp entidade) {
+    public long createInsertSqlite(EntityApp entidade) {
 
         return db.insert(getTableName(entidade), null, createContentValues(entidade));
     }
 
 
-    private ContentValues createContentValues(EntidadeApp entidade) {
+    private ContentValues createContentValues(EntityApp entidade) {
         Class<?> clazz1 = entidade.getClass();
         ContentValues values = new ContentValues();
 
@@ -91,7 +91,7 @@ public abstract class DAOGenerico implements DAO {
      * @param entidade
      * @return inteiro se houver um delete executado com sucesso.
      */
-    public int createDeleteSqlite(EntidadeApp entidade) {
+    public int createDeleteSqlite(EntityApp entidade) {
 
         return db.delete(getTableName(entidade), "id=?", new String[]{String.valueOf(entidade.getId())});
     }
